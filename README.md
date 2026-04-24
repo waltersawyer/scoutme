@@ -12,7 +12,7 @@ ScoutMe is a free platform — similar to LinkedIn and NCSA — where players bu
 - NCAA eligible player support
 
 ## Live Site
-https://yourusername.github.io/scoutme
+https://waltersawyer.github.io/scoutme
 
 ## Tech Stack
 - HTML / CSS / JavaScript
@@ -20,4 +20,4 @@ https://yourusername.github.io/scoutme
 - Airtable (player database)
 
 ## Contact
-contact@scoutme.com
+walter.sawyer@saintleo.edu
