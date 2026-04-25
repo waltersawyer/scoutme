@@ -3,7 +3,7 @@
 A platform for soccer players to showcase their profiles and get discovered by coaches at clubs and universities worldwide.
 
 ## What is ScoutMe?
-ScoutMe is a free platform — similar to LinkedIn and NCSA — where players build a professional soccer profile with their stats, highlight videos, and club history, and coaches can browse and filter players globally.
+ScoutMe is a free platform, similar to LinkedIn and NCSA, where players build a professional soccer profile with their stats, highlight videos, and club history, and coaches can browse and filter players globally.
 
 ## Features
 - Free player profiles with stats, highlights & experience
