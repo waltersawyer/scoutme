@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Get Recruited to a US College as an International Soccer Player — ScoutMe</title>
+  <meta name="description" content="Everything international soccer players need to know about NCAA recruiting — eligibility, contacting coaches, scholarships, and getting discovered." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1a9e5c; --green-dark: #0f6e3f;
+      --pitch: #0d1f14; --pitch-mid: #152b1d; --pitch-light: #1c3826;
+      --white: #f5f9f6; --muted: #8fa898; --accent: #e8ff6a;
+      --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--pitch); color: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; background: rgba(13,31,20,0.92);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .btn-nav { background: var(--accent); color: var(--pitch); font-weight: 500; font-size: 14px; padding: 8px 20px; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; }
+
+    /* ARTICLE HERO */
+    .article-hero {
+      padding: 72px 40px 56px; max-width: 800px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
+    .back-link:hover { color: var(--white); }
+    .article-tag { display: inline-block; font-size: 11px; padding: 4px 12px; border-radius: 100px; background: rgba(26,158,92,0.15); color: #6ddba8; border: 1px solid rgba(26,158,92,0.2); margin-bottom: 16px; }
+    .article-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 64px); letter-spacing: 1px; line-height: 1.0; color: var(--white); margin-bottom: 20px; }
+    .article-title span { color: var(--accent); }
+    .article-meta { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--muted); margin-bottom: 28px; flex-wrap: wrap; }
+    .article-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .article-intro { font-size: 18px; color: var(--white); line-height: 1.75; font-weight: 300; border-left: 3px solid var(--green); padding-left: 20px; }
+
+    /* ARTICLE BODY */
+    .article-body { max-width: 800px; margin: 0 auto; padding: 56px 40px 80px; }
+    .article-body h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px;
+      color: var(--white); margin: 48px 0 16px; padding-top: 8px;
+    }
+    .article-body h3 { font-size: 18px; font-weight: 500; color: var(--white); margin: 32px 0 12px; }
+    .article-body p { font-size: 16px; color: var(--muted); line-height: 1.85; margin-bottom: 20px; }
+    .article-body p strong { color: var(--white); font-weight: 500; }
+    .article-body ul, .article-body ol { padding-left: 20px; margin-bottom: 20px; }
+    .article-body li { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 8px; }
+    .article-body li strong { color: var(--white); }
+
+    .callout {
+      background: var(--pitch-mid); border: 1px solid rgba(26,158,92,0.3);
+      border-left: 4px solid var(--green); border-radius: 0 12px 12px 0;
+      padding: 20px 24px; margin: 32px 0;
+    }
+    .callout-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .callout p { font-size: 15px; color: var(--white); line-height: 1.7; margin-bottom: 0; }
+
+    .accent-box {
+      background: rgba(232,255,106,0.06); border: 1px solid rgba(232,255,106,0.2);
+      border-radius: 12px; padding: 24px; margin: 32px 0;
+    }
+    .accent-box-title { font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 12px; }
+    .accent-box p, .accent-box li { color: rgba(245,249,246,0.8); font-size: 15px; }
+
+    .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0; }
+    .step-box { background: var(--pitch-mid); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: rgba(232,255,106,0.2); line-height: 1; margin-bottom: 8px; }
+    .step-title { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    /* CTA */
+    .article-cta {
+      background: var(--pitch-mid); border: 1px solid rgba(26,158,92,0.25);
+      border-radius: 20px; padding: 40px; text-align: center; margin: 48px 0;
+    }
+    .article-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
+    .article-cta p { font-size: 15px; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: var(--pitch); font-weight: 500; font-size: 14px; padding: 12px 28px; border-radius: 100px; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-secondary { background: transparent; color: var(--white); font-size: 14px; padding: 12px 28px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); }
+
+    /* RELATED */
+    .related-section { border-top: 1px solid var(--border); padding: 56px 40px; max-width: 800px; margin: 0 auto; }
+    .related-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--white); margin-bottom: 24px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .related-card { background: var(--pitch-mid); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: border-color 0.2s; display: block; }
+    .related-card:hover { border-color: rgba(26,158,92,0.4); }
+    .related-tag { font-size: 11px; color: var(--green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; display: block; }
+    .related-card-title { font-size: 14px; font-weight: 500; color: var(--white); line-height: 1.4; }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer p { font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .article-hero, .article-body, .related-section { padding-left: 20px; padding-right: 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">ScoutMe</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="coaches.html">Browse players</a>
+      <a href="coach-signup.html">For coaches</a>
+      <a href="about.html">About</a>
+      <a href="blog.html" style="color:var(--white);">Blog</a>
+      <a class="btn-nav" href="https://airtable.com/appNnNslIt76hWWBU/pagOYTIdJPhHsVUHj/form" target="_blank">Join free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <a class="back-link" href="blog.html">← Back to blog</a>
+    <span class="article-tag">Recruiting</span>
+    <h1 class="article-title">How to Get Recruited to a US College as an <span>International</span> Soccer Player</h1>
+    <div class="article-meta">
+      <span>ScoutMe Team</span>
+      <div class="article-meta-dot"></div>
+      <span>8 min read</span>
+      <div class="article-meta-dot"></div>
+      <span>Recruiting · College soccer</span>
+    </div>
+    <p class="article-intro">Every year, thousands of talented international players dream of playing college soccer in the United States — but most have no idea where to start. This guide breaks down everything you need to know, step by step.</p>
+  </div>
+
+  <!-- BODY -->
+  <div class="article-body">
+
+    <h2>Why the US?</h2>
+    <p>The United States has over 1,000 colleges and universities with soccer programs — more than almost any other country in the world. Many of these programs offer <strong>athletic scholarships</strong> that can cover tuition, housing, and meals, making a US college education essentially free for the right player.</p>
+    <p>Beyond the financial benefit, playing college soccer in the US gives you access to top-level coaching, state-of-the-art facilities, and a pathway to professional soccer through the MLS SuperDraft and other routes.</p>
+
+    <div class="callout">
+      <div class="callout-label">Key fact</div>
+      <p>NCAA Division I programs can offer up to 9.9 full scholarships per team for men's soccer and 14 for women's soccer. These can be split among multiple players, meaning even partial scholarships can significantly reduce your costs.</p>
+    </div>
+
+    <h2>Step 1: Understand the NCAA Eligibility Rules</h2>
+    <p>Before anything else, international players need to understand <strong>NCAA eligibility</strong>. The NCAA is the governing body for most US college sports. Here's what matters:</p>
+    <ul>
+      <li><strong>Amateur status:</strong> You must not have been paid to play soccer. If you've played professionally — even in a youth academy that paid you — this could affect your eligibility.</li>
+      <li><strong>Academic eligibility:</strong> You need to meet the NCAA's academic requirements, including minimum GPA and standardized test scores (SAT or ACT).</li>
+      <li><strong>English proficiency:</strong> Most universities require proof of English proficiency (TOEFL or IELTS) for international students.</li>
+    </ul>
+    <p>Register with the <strong>NCAA Eligibility Center</strong> (eligibilitycenter.org) as early as possible — ideally in your sophomore year of high school. This is a required step for all student-athletes, including international players.</p>
+
+    <div class="accent-box">
+      <div class="accent-box-title">⚠️ Important for international players</div>
+      <p>If you've ever played for a professional club academy — even without being paid — contact the NCAA Eligibility Center directly to confirm your amateur status before you start the recruiting process. This is one of the most common issues international players face.</p>
+    </div>
+
+    <h2>Step 2: Know the Three Divisions</h2>
+    <p>Not all college soccer is the same. The NCAA has three divisions, each with different levels of competition and scholarship availability:</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num">D1</div>
+        <div class="step-title">Division I</div>
+        <div class="step-desc">Highest competition level. Most scholarships available. Biggest time commitment. Think programs like Stanford, UCLA, Georgetown.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">D2</div>
+        <div class="step-title">Division II</div>
+        <div class="step-desc">Strong competition with more balance between athletics and academics. Good scholarship opportunities. Often overlooked but highly competitive.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">D3</div>
+        <div class="step-title">Division III</div>
+        <div class="step-desc">No athletic scholarships but often strong academic financial aid. Excellent soccer and a more balanced student experience.</div>
+      </div>
+    </div>
+
+    <p>There's also <strong>NAIA</strong> (National Association of Intercollegiate Athletics) — often overlooked but with great scholarship opportunities and strong soccer programs, especially for international players.</p>
+
+    <h2>Step 3: Build Your Player Profile</h2>
+    <p>Coaches receive hundreds of emails from players they've never heard of. <strong>Your profile is your first impression</strong> — and it needs to be professional.</p>
+    <p>A strong recruiting profile includes:</p>
+    <ul>
+      <li><strong>Basic info:</strong> Name, age, position, nationality, height, dominant foot</li>
+      <li><strong>Stats:</strong> Goals, assists, appearances for the current season</li>
+      <li><strong>Academic info:</strong> GPA, graduation year, English proficiency</li>
+      <li><strong>Club history:</strong> Every team you've played for, with years and level</li>
+      <li><strong>Highlight video:</strong> 3–5 minutes max on YouTube (see our guide on highlight videos)</li>
+      <li><strong>A short bio:</strong> 2–3 sentences about who you are as a player and what you're looking for</li>
+    </ul>
+
+    <div class="callout">
+      <div class="callout-label">ScoutMe tip</div>
+      <p>Create your free ScoutMe profile to make all of this information available to coaches in one place. Coaches actively browse ScoutMe looking for players — your profile works for you 24/7 even when you're sleeping.</p>
+    </div>
+
+    <h2>Step 4: Make Your Highlight Video</h2>
+    <p>Your highlight video is the single most important recruiting tool you have. Coaches will decide whether to keep watching within the first 30 seconds. Here's what works:</p>
+    <ul>
+      <li><strong>Length:</strong> 3–5 minutes maximum. Coaches are busy. Shorter is better.</li>
+      <li><strong>Opening clips:</strong> Put your absolute best 2–3 moments in the first 60 seconds.</li>
+      <li><strong>Show variety:</strong> Goals, assists, defensive work, technical skill, decision-making under pressure.</li>
+      <li><strong>Full match clips:</strong> Include a link to at least one full game so coaches can evaluate your positioning and work rate.</li>
+      <li><strong>Quality:</strong> Good camera angle and decent resolution. Coaches should be able to clearly see you.</li>
+    </ul>
+    <p>Upload it to <strong>YouTube as unlisted</strong> (not private — coaches can't see private videos) and paste the link into your ScoutMe profile and every email you send.</p>
+
+    <h2>Step 5: Contact Coaches Directly</h2>
+    <p>This is where most international players give up — but it's the most important step. <strong>You have to reach out proactively.</strong> Coaches rarely discover players on their own, especially international ones.</p>
+    <h3>How to find coaches to contact:</h3>
+    <ul>
+      <li>Google "NCAA Division I soccer coaches" and browse program websites</li>
+      <li>Use ScoutMe's coach directory to find coaches who are actively recruiting</li>
+      <li>Look at programs that already have international players — they're more likely to recruit more</li>
+    </ul>
+    <h3>What to say in your email:</h3>
+    <p>Keep it short. Coaches get dozens of emails per day. Your first email should be no longer than 5–6 sentences:</p>
+    <div class="accent-box">
+      <div class="accent-box-title">📧 Email template</div>
+      <p>Subject: Prospective Student-Athlete — [Your Name] — [Position] — Class of [Year]</p>
+      <br>
+      <p>Dear Coach [Last Name],</p>
+      <br>
+      <p>My name is [Name] and I am a [age]-year-old [position] from [country] currently playing for [club]. I am interested in pursuing both my education and soccer career at [University Name] and believe I could contribute to your program.</p>
+      <br>
+      <p>This season I have [X goals, X assists] in [X games]. My GPA is [X] and I will graduate in [year]. I have attached my recruiting profile and highlight video for your review: [YouTube link]</p>
+      <br>
+      <p>I would welcome the opportunity to speak with you about your program. Thank you for your time.</p>
+      <br>
+      <p>[Your name]</p>
+    </div>
+
+    <h2>Step 6: Follow Up and Stay Organized</h2>
+    <p>Most coaches won't respond to your first email. That's normal. <strong>Follow up once after 2 weeks</strong> if you don't hear back. Keep a spreadsheet of every coach you've contacted, when you emailed them, and their response.</p>
+    <p>When a coach does respond — even just to say they'll keep your profile on file — respond promptly and professionally. Ask about official visits and next steps.</p>
+
+    <h2>Step 7: Understand the Timeline</h2>
+    <p>NCAA recruiting has specific rules about when coaches can contact players. Generally:</p>
+    <ul>
+      <li><strong>Start your profile and research early</strong> — ideally in your sophomore year (age 15–16)</li>
+      <li><strong>Begin contacting coaches</strong> in your junior year</li>
+      <li><strong>Official visits and offers</strong> typically happen in your senior year</li>
+      <li><strong>Early signing period</strong> is usually in November of your senior year</li>
+    </ul>
+    <p>However, <strong>don't panic if you're starting late</strong>. Many international players commit later than American players. Coaches understand that international recruiting timelines are different.</p>
+
+    <hr class="divider" />
+
+    <h2>Common Mistakes International Players Make</h2>
+    <ul>
+      <li><strong>Only targeting D1 programs.</strong> D2, D3, and NAIA programs offer great opportunities and are far less competitive to get into. Cast a wide net.</li>
+      <li><strong>Waiting to be discovered.</strong> Coaches won't find you unless you put yourself in front of them. Be proactive.</li>
+      <li><strong>Having no online presence.</strong> If a coach Googles your name and finds nothing, that's a red flag. Your ScoutMe profile solves this.</li>
+      <li><strong>Sending generic emails.</strong> Coaches can tell when you've copy-pasted the same email to 50 programs. Personalize each one with something specific about their program.</li>
+      <li><strong>Ignoring academics.</strong> Athletic scholarships aren't guaranteed. Your GPA matters — both for eligibility and for academic scholarships that can supplement your aid.</li>
+    </ul>
+
+    <div class="article-cta">
+      <h3>Ready to get discovered?</h3>
+      <p>Create your free ScoutMe profile in under 5 minutes and put yourself in front of coaches at clubs and universities worldwide.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://airtable.com/appNnNslIt76hWWBU/pagOYTIdJPhHsVUHj/form" target="_blank">Create my free profile</a>
+        <a class="btn-secondary" href="coaches.html">Browse coaches →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RELATED -->
+  <div class="related-section">
+    <div class="related-title">Keep reading</div>
+    <div class="related-grid">
+      <a class="related-card" href="#">
+        <span class="related-tag">Player profiles</span>
+        <div class="related-card-title">How to Make a Soccer Highlight Video That Coaches Actually Watch</div>
+      </a>
+      <a class="related-card" href="#">
+        <span class="related-tag">College soccer</span>
+        <div class="related-card-title">NCAA Division I vs II vs III — What's the Difference?</div>
+      </a>
+      <a class="related-card" href="#">
+        <span class="related-tag">Recruiting</span>
+        <div class="related-card-title">How to Email a College Soccer Coach (With Templates)</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <a class="logo" href="index.html">ScoutMe</a>
+    <p>Connecting players and coaches worldwide · Free to join</p>
+    <p><a href="mailto:contact@scoutme.com">contact@scoutme.com</a></p>
+  </footer>
+
+</body>
+</html>
