@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Tips — ScoutMe</title>
+  <meta name="description" content="Soccer recruiting tips, guides, and advice for players and coaches worldwide. Learn how to get recruited to a US college, build your profile, and more." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1a9e5c; --green-dark: #0f6e3f;
+      --pitch: #0d1f14; --pitch-mid: #152b1d; --pitch-light: #1c3826;
+      --white: #f5f9f6; --muted: #8fa898; --accent: #e8ff6a;
+      --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--pitch); color: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; background: rgba(13,31,20,0.92);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .btn-nav { background: var(--accent); color: var(--pitch); font-weight: 500; font-size: 14px; padding: 8px 20px; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; }
+
+    .hero {
+      padding: 80px 40px 60px; text-align: center;
+      background: linear-gradient(180deg, rgba(26,158,92,0.1) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 80px); letter-spacing: 2px; line-height: 0.95; margin-bottom: 20px; }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub { font-size: 17px; color: var(--muted); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+    .topic-pills { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .pill {
+      font-size: 13px; padding: 7px 18px; border-radius: 100px; cursor: pointer;
+      border: 1px solid var(--border); color: var(--muted); background: transparent;
+      transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .pill:hover, .pill.active { background: var(--green); color: var(--white); border-color: var(--green); }
+
+    .featured-section { padding: 64px 40px 0; max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
+
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--pitch-mid); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; margin-bottom: 48px;
+      transition: border-color 0.2s; text-decoration: none; color: inherit;
+    }
+    .featured-card:hover { border-color: rgba(26,158,92,0.4); }
+    .featured-visual {
+      background: linear-gradient(135deg, var(--pitch-light) 0%, #0a3d1f 100%);
+      min-height: 320px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; padding: 40px;
+    }
+    .featured-visual-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(26,158,92,0.2) 0%, transparent 60%);
+    }
+    .featured-visual-text {
+      position: relative; z-index: 1; text-align: center;
+    }
+    .featured-visual-num { font-family: 'Bebas Neue', sans-serif; font-size: 120px; color: rgba(232,255,106,0.12); line-height: 1; }
+    .featured-visual-icon { font-size: 56px; }
+    .featured-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-tag { display: inline-block; font-size: 11px; padding: 4px 12px; border-radius: 100px; background: rgba(26,158,92,0.15); color: #6ddba8; border: 1px solid rgba(26,158,92,0.2); margin-bottom: 16px; }
+    .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; line-height: 1.1; color: var(--white); margin-bottom: 14px; }
+    .featured-desc { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .featured-meta { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+    .read-btn {
+      display: inline-block; padding: 11px 28px; background: var(--accent); color: var(--pitch);
+      border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none;
+      transition: opacity 0.2s; width: fit-content;
+    }
+    .read-btn:hover { opacity: 0.88; }
+
+    .articles-section { padding: 48px 40px 80px; max-width: 1200px; margin: 0 auto; }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .article-card {
+      background: var(--pitch-mid); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+    }
+    .article-card:hover { border-color: rgba(26,158,92,0.4); transform: translateY(-4px); }
+    .article-visual {
+      height: 140px; display: flex; align-items: center; justify-content: center;
+      font-size: 48px; position: relative; overflow: hidden;
+    }
+    .article-content { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .article-tag { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; width: fit-content; }
+    .tag-recruiting { background: rgba(26,158,92,0.15); color: #6ddba8; border: 1px solid rgba(26,158,92,0.2); }
+    .tag-profile { background: rgba(232,255,106,0.1); color: var(--accent); border: 1px solid rgba(232,255,106,0.2); }
+    .tag-college { background: rgba(24,95,165,0.2); color: #7bb8f0; border: 1px solid rgba(24,95,165,0.3); }
+    .tag-coaches { background: rgba(158,26,26,0.2); color: #f09b7b; border: 1px solid rgba(158,26,26,0.3); }
+    .article-title { font-size: 16px; font-weight: 500; color: var(--white); line-height: 1.4; margin-bottom: 10px; flex: 1; }
+    .article-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+    .article-footer { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); }
+    .article-read-link { color: var(--green); text-decoration: none; font-size: 13px; font-weight: 500; }
+    .article-read-link:hover { color: var(--accent); }
+
+    .newsletter {
+      background: var(--pitch-mid); border-top: 1px solid var(--border);
+      padding: 64px 40px; text-align: center;
+    }
+    .newsletter-inner { max-width: 540px; margin: 0 auto; }
+    .newsletter h2 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 1px; margin-bottom: 12px; }
+    .newsletter p { font-size: 15px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+    .newsletter-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+    .newsletter-input {
+      flex: 1; padding: 12px 16px; background: var(--pitch-light);
+      border: 1px solid var(--border); border-radius: 10px; color: var(--white);
+      font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input::placeholder { color: var(--muted); }
+    .newsletter-input:focus { border-color: rgba(26,158,92,0.5); }
+    .newsletter-btn {
+      padding: 12px 22px; background: var(--accent); color: var(--pitch);
+      border: none; border-radius: 10px; font-size: 14px; font-weight: 500;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .newsletter-btn:hover { opacity: 0.88; }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer p { font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 800px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 180px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 56px 20px 40px; }
+      .featured-section, .articles-section { padding-left: 20px; padding-right: 20px; }
+      .newsletter { padding: 48px 20px; }
+      .newsletter-form { flex-direction: column; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">ScoutMe</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="coaches.html">Browse players</a>
+      <a href="coach-signup.html">For coaches</a>
+      <a href="about.html">About</a>
+      <a href="blog.html" class="active" style="color:var(--white);">Blog</a>
+      <a class="btn-nav" href="https://airtable.com/appNnNslIt76hWWBU/pagOYTIdJPhHsVUHj/form" target="_blank">Join free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-label">ScoutMe Blog</span>
+    <h1>TIPS TO GET<br>RECRUITED <span>FASTER.</span></h1>
+    <p class="hero-sub">Free guides, advice, and recruiting tips for soccer players and coaches worldwide.</p>
+    <div class="topic-pills">
+      <button class="pill active" onclick="filterPosts('all')">All posts</button>
+      <button class="pill" onclick="filterPosts('recruiting')">Recruiting</button>
+      <button class="pill" onclick="filterPosts('profile')">Player profiles</button>
+      <button class="pill" onclick="filterPosts('college')">College soccer</button>
+      <button class="pill" onclick="filterPosts('coaches')">For coaches</button>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <div class="featured-section">
+    <div class="section-label">Featured article</div>
+    <a class="featured-card" href="blog-how-to-get-recruited.html">
+      <div class="featured-visual">
+        <div class="featured-visual-bg"></div>
+        <div class="featured-visual-text">
+          <div class="featured-visual-icon">🎓⚽</div>
+          <div class="featured-visual-num">01</div>
+        </div>
+      </div>
+      <div class="featured-content">
+        <span class="featured-tag">Recruiting</span>
+        <div class="featured-title">How to Get Recruited to a US College as an International Soccer Player</div>
+        <div class="featured-desc">Everything you need to know about the NCAA recruiting process — from eligibility rules to building your profile, reaching coaches, and securing a scholarship.</div>
+        <div class="featured-meta">
+          <span>⏱ 8 min read</span>
+          <span>·</span>
+          <span>ScoutMe Team</span>
+        </div>
+        <a class="read-btn" href="blog-how-to-get-recruited.html">Read article →</a>
+      </div>
+    </a>
+  </div>
+
+  <!-- ALL ARTICLES -->
+  <div class="articles-section">
+    <div class="section-label">All articles</div>
+    <div class="articles-grid" id="articlesGrid">
+
+      <a class="article-card" href="blog-how-to-get-recruited.html" data-tag="recruiting">
+        <div class="article-visual" style="background: linear-gradient(135deg, #0f3d22, #1a9e5c22);">🎓</div>
+        <div class="article-content">
+          <span class="article-tag tag-recruiting">Recruiting</span>
+          <div class="article-title">How to Get Recruited to a US College as an International Player</div>
+          <div class="article-desc">Step-by-step guide to the NCAA process, eligibility, contacting coaches, and getting a scholarship.</div>
+          <div class="article-footer">
+            <span>8 min read</span>
+            <span class="article-read-link">Read →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="profile">
+        <div class="article-visual" style="background: linear-gradient(135deg, #1a1a0f, #9e9e1a22);">📹</div>
+        <div class="article-content">
+          <span class="article-tag tag-profile">Player profiles</span>
+          <div class="article-title">How to Make a Soccer Highlight Video That Coaches Actually Watch</div>
+          <div class="article-desc">The format, length, and clips that get coaches to keep watching — and the mistakes that make them click away.</div>
+          <div class="article-footer">
+            <span>6 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="college">
+        <div class="article-visual" style="background: linear-gradient(135deg, #0f1a3d, #185fa522);">🏆</div>
+        <div class="article-content">
+          <span class="article-tag tag-college">College soccer</span>
+          <div class="article-title">NCAA Division I vs II vs III — What's the Difference for Soccer Players?</div>
+          <div class="article-desc">Breaking down the differences in scholarship money, competition level, and lifestyle across all three divisions.</div>
+          <div class="article-footer">
+            <span>5 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="profile">
+        <div class="article-visual" style="background: linear-gradient(135deg, #1a0f3d, #6e1a9e22);">✍️</div>
+        <div class="article-content">
+          <span class="article-tag tag-profile">Player profiles</span>
+          <div class="article-title">How to Write a Soccer Recruiting Bio That Stands Out</div>
+          <div class="article-desc">What to include, what to leave out, and the exact format coaches respond to. With real examples.</div>
+          <div class="article-footer">
+            <span>4 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="recruiting">
+        <div class="article-visual" style="background: linear-gradient(135deg, #3d0f0f, #9e1a1a22);">📧</div>
+        <div class="article-content">
+          <span class="article-tag tag-recruiting">Recruiting</span>
+          <div class="article-title">How to Email a College Soccer Coach (With Templates)</div>
+          <div class="article-desc">The exact email format that gets responses, what to say, and what never to write. Includes copy-paste templates.</div>
+          <div class="article-footer">
+            <span>5 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="coaches">
+        <div class="article-visual" style="background: linear-gradient(135deg, #0f3d3d, #1a9e9e22);">🌍</div>
+        <div class="article-content">
+          <span class="article-tag tag-coaches">For coaches</span>
+          <div class="article-title">How to Find International Players for Your Program on a Zero Budget</div>
+          <div class="article-desc">A practical guide for coaches at all levels to discover global talent without expensive scouting services.</div>
+          <div class="article-footer">
+            <span>7 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="college">
+        <div class="article-visual" style="background: linear-gradient(135deg, #1a3d0f, #5a9e1a22);">💰</div>
+        <div class="article-content">
+          <span class="article-tag tag-college">College soccer</span>
+          <div class="article-title">Soccer Scholarships in the US — How Much Can You Actually Get?</div>
+          <div class="article-desc">The real numbers behind athletic scholarships, how they work, and how to maximize your financial aid package.</div>
+          <div class="article-footer">
+            <span>6 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="recruiting">
+        <div class="article-visual" style="background: linear-gradient(135deg, #3d2a0f, #9e6a1a22);">📅</div>
+        <div class="article-content">
+          <span class="article-tag tag-recruiting">Recruiting</span>
+          <div class="article-title">The Soccer Recruiting Timeline — When to Start and What to Do Each Year</div>
+          <div class="article-desc">A year-by-year breakdown of what coaches expect, when to reach out, and how early is too early.</div>
+          <div class="article-footer">
+            <span>7 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="#" data-tag="profile">
+        <div class="article-visual" style="background: linear-gradient(135deg, #0f3d2a, #1a9e6a22);">📊</div>
+        <div class="article-content">
+          <span class="article-tag tag-profile">Player profiles</span>
+          <div class="article-title">What Stats Matter Most to College Soccer Coaches?</div>
+          <div class="article-desc">Goals and assists aren't everything. We asked coaches what numbers they actually look at when evaluating players.</div>
+          <div class="article-footer">
+            <span>5 min read</span>
+            <span class="article-read-link">Coming soon</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <div class="newsletter-inner">
+      <h2>Get recruiting tips in your inbox</h2>
+      <p>Join thousands of players and coaches getting free weekly tips on recruiting, profiles, and opportunities worldwide.</p>
+      <div class="newsletter-form">
+        <input class="newsletter-input" type="email" placeholder="your@email.com" id="newsletterEmail" />
+        <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a class="logo" href="index.html">ScoutMe</a>
+    <p>Connecting players and coaches worldwide · Free to join</p>
+    <p><a href="mailto:contact@scoutme.com">contact@scoutme.com</a></p>
+  </footer>
+
+  <script>
+    function filterPosts(tag) {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.article-card').forEach(card => {
+        if (tag === 'all' || card.dataset.tag === tag) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function subscribeNewsletter() {
+      const email = document.getElementById('newsletterEmail').value;
+      if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+      alert('Thanks for subscribing! You\'ll get our first tips email soon.');
+      document.getElementById('newsletterEmail').value = '';
+    }
+  </script>
+
+</body>
+</html>
