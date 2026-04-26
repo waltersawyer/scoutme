@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — ScoutMe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1a9e5c;
+      --green-dark: #0f6e3f;
+      --pitch: #0d1f14;
+      --pitch-mid: #152b1d;
+      --pitch-light: #1c3826;
+      --white: #f5f9f6;
+      --muted: #8fa898;
+      --accent: #e8ff6a;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--pitch);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(13,31,20,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .btn-nav {
+      background: var(--accent); color: var(--pitch);
+      font-weight: 500; font-size: 14px; padding: 8px 20px;
+      border-radius: 100px; border: none; cursor: pointer;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-nav:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      padding: 100px 40px 80px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(26,158,92,0.1) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(26,158,92,0.15) 0%, transparent 70%);
+    }
+    .hero-label {
+      display: inline-block; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--green);
+      margin-bottom: 16px; position: relative; z-index: 1;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 10vw, 100px);
+      letter-spacing: 2px; line-height: 0.95;
+      color: var(--white); margin-bottom: 24px;
+      position: relative; z-index: 1;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px); color: var(--muted);
+      max-width: 560px; margin: 0 auto; line-height: 1.7;
+      position: relative; z-index: 1;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* STORY */
+    .section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 56px); letter-spacing: 1px;
+      color: var(--white); line-height: 1.05; margin-bottom: 28px;
+    }
+    .section-title span { color: var(--accent); }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .story-text p {
+      font-size: 16px; color: var(--muted); line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .story-text p strong { color: var(--white); font-weight: 500; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-visual {
+      background: var(--pitch-mid);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px;
+      position: relative; overflow: hidden;
+    }
+    .story-visual-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(26,158,92,0.1) 0%, transparent 60%);
+    }
+    .story-visual-content { position: relative; z-index: 1; }
+    .big-quote {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px; color: rgba(232,255,106,0.15);
+      line-height: 1; margin-bottom: -16px;
+    }
+    .quote-text {
+      font-size: 18px; color: var(--white); line-height: 1.7;
+      font-style: italic; margin-bottom: 20px;
+    }
+    .quote-divider { width: 40px; height: 2px; background: var(--green); margin-bottom: 16px; }
+    .quote-author { font-size: 14px; color: var(--muted); }
+    .quote-author strong { color: var(--white); display: block; font-style: normal; font-size: 15px; margin-bottom: 2px; }
+
+    /* MISSION */
+    .mission-section {
+      background: var(--pitch-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 40px;
+    }
+    .mission-inner { max-width: 1100px; margin: 0 auto; }
+    .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .mission-card {
+      background: var(--pitch-light);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .mission-card:hover { border-color: rgba(26,158,92,0.4); transform: translateY(-4px); }
+    .mission-icon { font-size: 32px; margin-bottom: 14px; }
+    .mission-title { font-size: 17px; font-weight: 500; color: var(--white); margin-bottom: 10px; }
+    .mission-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* NUMBERS */
+    .numbers-section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; text-align: center; }
+    .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .number-card {
+      background: var(--pitch-mid);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px 20px;
+    }
+    .number-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px; color: var(--accent); line-height: 1; margin-bottom: 8px;
+    }
+    .number-label { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* TIMELINE */
+    .timeline-section { padding: 80px 40px; max-width: 800px; margin: 0 auto; }
+    .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 48px; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 20px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--border);
+    }
+    .timeline-item { display: flex; gap: 24px; padding-bottom: 36px; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      background: var(--pitch-mid); border: 2px solid var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; position: relative; z-index: 1;
+    }
+    .timeline-dot.accent { border-color: var(--accent); background: rgba(232,255,106,0.1); }
+    .timeline-content { padding-top: 8px; }
+    .timeline-date { font-size: 12px; color: var(--green); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .timeline-title { font-size: 16px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+    .timeline-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* TEAM */
+    .team-section {
+      background: var(--pitch-mid);
+      border-top: 1px solid var(--border);
+      padding: 80px 40px;
+    }
+    .team-inner { max-width: 1100px; margin: 0 auto; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .team-card {
+      background: var(--pitch-light);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px; text-align: center;
+      transition: border-color 0.2s;
+    }
+    .team-card:hover { border-color: rgba(26,158,92,0.4); }
+    .team-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--white);
+    }
+    .team-name { font-size: 16px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+    .team-role { font-size: 13px; color: var(--green); margin-bottom: 10px; }
+    .team-bio { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { padding: 80px 40px; text-align: center; }
+    .cta-inner {
+      max-width: 700px; margin: 0 auto;
+      background: var(--pitch-mid);
+      border: 1px solid rgba(26,158,92,0.25);
+      border-radius: 24px; padding: 64px 48px;
+    }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 64px); letter-spacing: 1px;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .cta-sub { font-size: 16px; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: var(--pitch);
+      font-weight: 500; font-size: 15px; padding: 14px 32px;
+      border-radius: 100px; border: none; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      font-size: 15px; padding: 14px 32px;
+      border-radius: 100px; border: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    footer .logo { font-size: 22px; }
+    footer p { font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 36px; }
+      .mission-grid { grid-template-columns: 1fr; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .section { padding: 60px 20px; }
+      .hero { padding: 72px 20px 56px; }
+      .mission-section, .team-section, .cta-section { padding: 60px 20px; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-inner { padding: 40px 24px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="index.html">ScoutMe</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="coaches.html">Browse players</a>
+      <a href="coach-signup.html">For coaches</a>
+      <a href="about.html" class="active" style="color:var(--white);">About</a>
+      <a class="btn-nav" href="https://airtable.com/appNnNslIt76hWWBU/pagOYTIdJPhHsVUHj/form" target="_blank">Join free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-label">Our story</div>
+    <h1>BUILT FOR THE<br>PLAYERS WHO<br>DESERVE A <span>CHANCE.</span></h1>
+    <p class="hero-sub">ScoutMe exists because talent is everywhere — but opportunity isn't. We're changing that, one profile at a time.</p>
+  </div>
+
+  <!-- STORY -->
+  <div class="section">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="section-label">Why we built this</div>
+        <div class="section-title">The problem<br>we're <span>solving.</span></div>
+        <p>Every year, thousands of talented soccer players never get recruited — <strong>not because they aren't good enough</strong>, but because the right coach simply never found them.</p>
+        <p>Traditional recruiting is broken. It favors players with expensive agents, connections, or the luck of being in the right place at the right time. <strong>A 17-year-old in Ghana or Mexico has almost no way to reach a university coach in the US or Europe</strong> — no matter how talented they are.</p>
+        <p>ScoutMe was built to fix that. A free, open platform where any player anywhere in the world can build a professional profile, showcase their highlights, and get discovered by coaches who are actively looking.</p>
+        <p><strong>No agents. No fees. No gatekeepers.</strong> Just talent meeting opportunity.</p>
+      </div>
+      <div class="story-visual">
+        <div class="story-visual-bg"></div>
+        <div class="story-visual-content">
+          <div class="big-quote">"</div>
+          <div class="quote-text">Talent is equally distributed around the world. Opportunity is not. ScoutMe is our attempt to change that equation.</div>
+          <div class="quote-divider"></div>
+          <div class="quote-author">
+            <strong>The ScoutMe Team</strong>
+            Founders, ScoutMe
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <div class="mission-section">
+    <div class="mission-inner">
+      <div class="section-label">Our mission</div>
+      <div class="section-title">What we stand for.</div>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">🌍</div>
+          <div class="mission-title">Equal access for all players</div>
+          <div class="mission-desc">Whether you're in São Paulo, Lagos, or Los Angeles — every player deserves the same shot at being discovered. Geography should never limit your career.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">💸</div>
+          <div class="mission-title">Always free for players</div>
+          <div class="mission-desc">We will never charge players to create a profile or be discovered. The platform that helps you get recruited should never be a barrier to your dream.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">🤝</div>
+          <div class="mission-title">Connecting real people</div>
+          <div class="mission-desc">ScoutMe isn't about algorithms or automated outreach. It's about real players and real coaches finding each other and building real opportunities.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">⚽</div>
+          <div class="mission-title">Growing the global game</div>
+          <div class="mission-desc">When more talent reaches more clubs and universities, the whole sport gets better. We're invested in the growth of soccer at every level worldwide.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">🎓</div>
+          <div class="mission-title">Education through sport</div>
+          <div class="mission-desc">For many players, a university scholarship is the key to both an education and a soccer career. We're proud to help make that connection happen.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">🔒</div>
+          <div class="mission-title">Trust and safety first</div>
+          <div class="mission-desc">We verify coaches and take player safety seriously. Every coach on ScoutMe has agreed to our standards of professional and respectful conduct.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NUMBERS -->
+  <div class="numbers-section">
+    <div class="section-label">ScoutMe by the numbers</div>
+    <div class="section-title">Growing every day.</div>
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="number-num">50+</div>
+        <div class="number-label">Countries with active players</div>
+      </div>
+      <div class="number-card">
+        <div class="number-num">Free</div>
+        <div class="number-label">Forever for players and coaches</div>
+      </div>
+      <div class="number-card">
+        <div class="number-num">NCAA</div>
+        <div class="number-label">Eligible players on platform</div>
+      </div>
+      <div class="number-card">
+        <div class="number-num">24/7</div>
+        <div class="number-label">Your profile works around the clock</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-section">
+    <div class="section-label">Our journey</div>
+    <div class="section-title">How we got here.</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">💡</div>
+        <div class="timeline-content">
+          <div class="timeline-date">The idea</div>
+          <div class="timeline-title">Spotting the gap</div>
+          <div class="timeline-desc">We saw firsthand how many talented players were invisible to coaches simply because they had no way to reach them. The idea for ScoutMe was born.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🛠️</div>
+        <div class="timeline-content">
+          <div class="timeline-date">Building</div>
+          <div class="timeline-title">ScoutMe comes to life</div>
+          <div class="timeline-desc">We built the first version of ScoutMe from scratch — a clean, fast platform where players could build profiles and coaches could search and discover talent globally.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot accent">🚀</div>
+        <div class="timeline-content">
+          <div class="timeline-date">Launch</div>
+          <div class="timeline-title">Open to the world</div>
+          <div class="timeline-desc">ScoutMe officially launches. Players from across the globe start building profiles. Coaches from clubs and universities begin discovering talent they'd never found before.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🌍</div>
+        <div class="timeline-content">
+          <div class="timeline-date">What's next</div>
+          <div class="timeline-title">Growing the network</div>
+          <div class="timeline-desc">Individual player profile pages, coach verification, video analytics, and expanding our coach network to 100+ countries. The best is yet to come.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="team-section">
+    <div class="team-inner">
+      <div class="section-label">The team</div>
+      <div class="section-title">Who's behind ScoutMe.</div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #1a9e5c, #0f6e3f);">F</div>
+          <div class="team-name">Founder</div>
+          <div class="team-role">CEO & Co-Founder</div>
+          <div class="team-bio">Built ScoutMe to solve a problem they saw firsthand — talented players with no pathway to the coaches who needed them.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #185fa5, #0c447c);">+</div>
+          <div class="team-name">You?</div>
+          <div class="team-role">We're growing</div>
+          <div class="team-bio">Are you passionate about soccer and want to help build something meaningful? We'd love to hear from you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-title">Ready to be part of the story?</div>
+      <div class="cta-sub">Whether you're a player chasing your dream or a coach looking for your next signing — ScoutMe is built for you. And it's completely free.</div>
+      <div class="cta-btns">
+        <a class="btn-primary" href="https://airtable.com/appNnNslIt76hWWBU/pagOYTIdJPhHsVUHj/form" target="_blank">Create player profile</a>
+        <a class="btn-secondary" href="coach-signup.html">I'm a coach →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="logo" href="index.html">ScoutMe</a>
+    <p>Connecting players and coaches worldwide · Free to join</p>
+    <p><a href="mailto:contact@scoutme.com">contact@scoutme.com</a></p>
+  </footer>
+
+</body>
+</html>
